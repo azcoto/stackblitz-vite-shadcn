@@ -1,32 +1,19 @@
-import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Label } from '@/components/ui/label';
-import { Switch } from '@/components/ui/switch';
+import LineIndicator from "./components/line-indicator";
+import { Checkbox } from "./components/ui/checkbox";
 
 export const App = () => (
-  <Card>
-    <CardHeader>
-      <CardTitle>Stackblitz Template</CardTitle>
-    </CardHeader>
-    <CardContent className="grid gap-6">
-      <Item name="TypeScript (5.3.2)" />
-      <Item name="Vite (5.0.2)" />
-      <Item name="React (18.2)" />
-      <Item name="Tailwind (3.3.5)" />
-      <Item name="shadcn/ui (0.4.1, all components)" />
-    </CardContent>
-  </Card>
-);
+  <div className='p-8'>
+    <div className="flex items-center gap-2">
+      <div>Strongly Disagree</div>
+      <div className="flex-1">
+        <LineIndicator />
+      </div>
+      <div>Strongly Agree</div>
 
-const Item: React.FC<{ name: string }> = ({ name }) => {
-  const id = React.useId();
-
-  return (
-    <div className="flex items-center justify-between space-x-2">
-      <Label htmlFor={id} className="flex flex-col space-y-1 text-xl">
-        <span>{name}</span>
-      </Label>
-      <Switch id={id} defaultChecked />
     </div>
-  );
-};
+    <div className="flex gap-8">
+      <Checkbox variant="close" />
+      <Checkbox variant="star" />
+    </div>
+  </div>
+);
